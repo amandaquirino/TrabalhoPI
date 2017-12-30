@@ -1,0 +1,33 @@
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:define name="corpo-da-pagina">
+		
+		<h:form>
+    
+ 
+    <p:panel id="basic" header="Arthur Alland" style="margin-bottom:20px">
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:graphicImage url="imagens/Arthur.jpg" style="width:200px;margin-right:450px;"/>
+            <h:outputText
+                value="20 anos, futuro técnico em informática" />
+        </h:panelGrid>
+    </p:panel>
+    
+    <p:panel header="Amanda Quirinio" style="margin-bottom:20px">
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:graphicImage url="imagens/Amanda.jpg" style="width:200px;margin-right:450px;"/>
+            <h:outputText
+                value="17 anos, futura técnica em informática" />
+        </h:panelGrid>
+    </p:panel>
+ 
+		
+		</h:form>
+		
+	</ui:define>
+</ui:composition>

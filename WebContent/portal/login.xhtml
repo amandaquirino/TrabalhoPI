@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>  
+<!DOCTYPE html>
+	
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/templateLogin.xhtml">
+	
+	<ui:define name="corpo-da-pagina">
+		
+		<div class="jumbotron">
+	      <div class="container">
+	        <h1>Login</h1>
+	      </div>
+	    </div>
+	    
+	 <div style="width:100%;">
+    		<h:form>
+    		
+    		<h:panelGrid id="grid" columns="2" cellpadding="5">
+		        <div>
+			        <p:inputText value="#{loginMBean.usuario.email}" placeholder="Email" 
+			        style="width:300px;text-align:center;"/>
+		        </div>
+		        
+		        <div>
+			        
+			        <p:password value="#{loginMBean.usuario.senha}" placeholder="Senha"
+			         style="width:300px;text-align:center;"/>
+		        </div>
+		        </h:panelGrid>
+		        <center><div>
+			        <h:commandButton action="#{loginMBean.autenticar}" value="Entrar" style="width:80px;"/>
+			        <h:commandButton action="#{cadastroUsuariosMBean.cadastroPeloUsuario}" value="Cadastre-se"/>
+			    </div></center>
+			    
+			    
+	    
+
+	    
+	    
+	    	</h:form>
+	      </div>
+	    
+	</ui:define>
+
+</ui:composition>

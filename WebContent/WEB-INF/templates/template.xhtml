@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>K19 Treinamentos</title>
+	
+	
+	
+	<!-- código para redirecionar para alguma página  
+	<meta http-equiv="refresh" content="60;URL='login.xhtml'" />  -->
+</h:head>
+
+<h:body style="background: url('/TrabalhoPI/imagens/fundo-dragonball.jpg') no-repeat fixed !important;">
+
+
+	<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+ 
+        
+        	
+        	<f:facet name="options"> 
+        	<h:outputLabel style="right:250px;top:25px;position:absolute;" for="nome" value="#{loginMBean.usuario.nome}"
+             rendered="#{loginMBean.usuario.ativo}" />
+             
+             <h:graphicImage id="nome" url="#{usuarioLogado.personagem.urlFotoPersonagem}"
+		            				 rendered="#{usuarioLogado.personagem.idFoto != null}"
+		            				 style="width:60px;height:60px;"/>
+             
+             </f:facet>
+             
+             <p:submenu label="Configurações" icon="ui-icon-gear" style="float:right;margin-top:15px;">
+            <p:menuitem value="Logoff" action="#{loginMBean.logoff}" icon="ui-icon-arrowreturnthick-1-w" />
+        </p:submenu>
+             
+       
+    </p:menubar>
+</h:form>
+
+	<!-- Cabeçalho Foto -->
+	<div>
+		<center>
+			<h:graphicImage url="/imagens/Dragon_Ball_Super_Logo.png" style="width: 60%;" />
+		</center>
+
+	</div>
+	
+	<!-- Barra de menu -->
+	<center><div style="min-width:400px;max-width:1200px;">
+		  <h:form>
+        <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:menuitem value="Início" outcome="index"	icon="ui-icon-home" />
+ 
+        <p:submenu label="Sobre o site" icon="ui-icon-pencil">
+            <p:menuitem value="Desenvolvedores" outcome="desenvolvedores" icon="ui-icon-arrowreturnthick-1-w" />
+        </p:submenu>
+ 
+        <p:submenu label="Personagens" icon="ui-icon-help">
+        	<p:menuitem value="Cadastrar personagem" action="#{cadastroPersonagensMBean.entrarCadastroPesonagens}"   />
+            <p:menuitem value="Lista de personagens" action="#{buscarPersonagensMBean.entrarBuscarPersonagens}" />
+        </p:submenu>
+ 
+        <p:submenu label="Usuário" icon="ui-icon-gear">    
+                <p:menuitem value="Cadastrar ou Editar" outcome="telaDeEdicaoOuCadastroPeloAdministrador"/>
+                <p:menuitem value="Lista de Usuários" action="#{buscaUsuariosMBean.entrarBuscarUsuarios}"/>
+                <p:menuitem value="Login" outcome="telaDeLogin"/>
+           
+        </p:submenu>
+ 
+        <f:facet name="options">
+        	
+        
+            
+        </f:facet>
+    </p:menubar>
+        </h:form>
+	</div>
+	</center>
+	<br />
+
+	<center><p:layout style="min-width:400px;max-width:1200px;min-height:1000px;">
+    	
+   
+    	
+    	
+    	
+    	
+
+		<p:layoutUnit position="center" size="400" style="opacity:0.95;">
+			
+			<ui:insert name="corpo-da-pagina">Espaço para o conteúdo da tela </ui:insert>
+
+		</p:layoutUnit>
+
+		<p:layoutUnit position="south" size="115">
+
+
+
+
+			<div id="footer" style="text-align: center">&copy; 2012 K19.
+				Todos os direitos reservados.</div>
+		</p:layoutUnit>
+
+	</p:layout>
+</center>
+
+
+
+</h:body>
+
+</html>

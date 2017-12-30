@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>  
+<!DOCTYPE html>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<div class="form-group row">
+		<div class="col-md-6" style="">
+			<div class="input-group" style="margin-top: 5px;">
+				<span class="input-group-addon" id="addonNome">
+					Nome
+				</span>
+				
+				<p:inputText styleClass="form-control"
+					value="#{cadastroPersonagensMBean.personagem.nome}" required="true"
+					requiredMessage="Campo Nome Obrigatório" size="40"
+					aria-describedby="addonNome" />
+			</div>
+			
+			<div class="input-group" style="margin-top: 5px;">
+				<span class="input-group-addon" id="addonSobrenome">
+					Raça
+				</span>
+				
+				<p:inputText styleClass="form-control"
+					value="#{cadastroPersonagensMBean.personagem.raca}" required="true"
+					requiredMessage="Campo Sobrenome Obrigatório" size="40"
+					aria-describedby="addonSobrenome" />
+			</div>
+			
+		</div>
+		
+		<div class="col-md-6">
+			<div class="input-group">
+				<span class="input-group-addon" id="addonFoto">Foto</span>
+       				
+       			<p:fileUpload mode="simple" value="#{cadastroPersonagensMBean.personagem.arquivo}" 
+       				aria-describedby="addonFoto" style=""/>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<div class="col-md-6">
+			<div class="input-group" style="margin-top: 5px;">
+				<span class="input-group-addon" id="addonLogin">
+					Descrição
+					<h:graphicImage url="/resources/img/required.gif" title="Campo Obrigatório"/>
+				</span>
+				<p:inputText styleClass="form-control"
+					value="#{cadastroPersonagensMBean.personagem.descricao}" required="true"
+					requiredMessage="Campo Email Obrigatório" size="40"
+					aria-describedby="addonLogin">
+					<f:validateLength minimum="4" />
+				</p:inputText>
+			</div>
+		</div>
+			
+		
+	</div>
+</ui:composition>

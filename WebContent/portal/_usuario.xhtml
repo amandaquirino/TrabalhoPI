@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<div>
+
+	
+
+	<h:outputLabel for="nome" value="Nome:" />
+	<p:inputText value="#{cadastroUsuariosMBean.usuario.nome}" required="true"
+					requiredMessage="Campo Nome Obrigatório" id="nome"/>
+
+	<h:outputLabel for="senha" value="Senha:" />
+	<p:password value="#{cadastroUsuariosMBean.usuario.senha}"
+		required="#{cadastroUsuariosMBean.usuario.id == 0}" id="senha"
+		requiredMessage="Campo Senha Obrigatório"
+		validatorMessage="O campo senha deve ter no mínimo 6 caracteres">
+		<f:validateLength minimum="6" />
+	</p:password>
+
+	<h:outputLabel for="novaSenhaConfirmacao" value="Confirme a senha:" />
+	<p:password
+		value="#{cadastroUsuariosMBean.usuario.novaSenhaConfirmacao}"
+		required="#{cadastroUsuariosMBean.usuario.id == 0}"
+		id="novaSenhaConfirmacao"
+		requiredMessage="Campo Confirmar Senha Obrigatório">
+	</p:password>
+
+	<h:outputLabel for="apelido" value="Apelido:" />
+	<p:inputText value="#{cadastroUsuariosMBean.usuario.apelido}"
+		required="true" id="apelido" requiredMessage="Campo Email Obrigatório">
+
+	</p:inputText>
+
+	<h:outputLabel for="tipoUsuario" value="Tipo de Usuário:" />
+	<h:selectOneMenu value="#{cadastroUsuariosMBean.usuario.tipoUsuario}"
+		required="true" id="tipoUsuario"
+		requiredMessage="Campo Tipo de Usuário Obrigatório">
+		<f:selectItem itemValue="#{null}" itemLabel="--SELECIONE--"
+			itemDescription="--SELECIONE--" />
+		<f:selectItem itemValue="ADMINISTRADOR" itemLabel="Administrador"
+			itemDescription="Administrador" />
+		<f:selectItem itemValue="COMUM" itemLabel="Comum"
+			itemDescription="Comum" />
+	</h:selectOneMenu>
+	
+	
+	
+	<h:outputLabel for="foto-personagem" value="Foto:" />
+					<h:selectOneMenu
+						value="#{cadastroUsuariosMBean.usuario.personagem.id}"
+						required="true" id="foto-personagem"
+						requiredMessage="Campo Tipo de Usuário Obrigatório">
+						<f:selectItems value="#{ buscarPersonagensMBean.buscar}" var="p"
+							itemLabel="#{p.nome}" itemValue="#{p.id}" />
+					</h:selectOneMenu>
+
+	<h:outputLabel for="idade" value="Idade:" />
+	<p:inputText value="#{cadastroUsuariosMBean.usuario.idade}"
+		required="true" id="idade" requiredMessage="Campo Idade Obrigatório">
+
+	</p:inputText>
+
+	<h:outputLabel for="email" value="Email:" />
+	<p:inputText value="#{cadastroUsuariosMBean.usuario.email}"
+		required="true" id="email" requiredMessage="Campo Email Obrigatório">
+		<f:validateLength minimum="4" />
+	</p:inputText>
+
+
+	<h:outputLabel for="telefone" value="Telefone:" />
+	<p:inputText value="#{cadastroUsuariosMBean.usuario.telefone}"
+		required="true" id="telefone"
+		requiredMessage="Campo Telefone Obrigatório">
+
+	</p:inputText>
+	
+
+
+
+
+
+</div>
+
+</ui:composition>
